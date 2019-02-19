@@ -1,10 +1,10 @@
-package com.greatersum.rental;
+package com.etraveli.rental;
 
-public class MovieRental {
+public class Rental {
     private final String movieId;
     private final int days;
 
-    public MovieRental(String movieId, int days) {
+    public Rental(String movieId, int days) {
         this.movieId = movieId;
         this.days = days;
     }

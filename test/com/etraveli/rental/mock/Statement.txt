@@ -1,0 +1,5 @@
+Rental Record for martin
+	Ran	3.5
+	Trois Couleurs: Bleu	2
+Amount owed is 5.5
+You earned 2 frequent renter points
