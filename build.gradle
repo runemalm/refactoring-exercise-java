@@ -1,4 +1,4 @@
-group 'com.greatersum'
+group 'com.etraveli'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
@@ -15,7 +15,6 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile name: 'ApprovalTests'
 }
 
 sourceSets {
@@ -28,5 +27,12 @@ sourceSets {
         java {
             srcDirs = ["test"]
         }
+    }
+}
+
+test {
+    testLogging {
+        showStandardStreams = true
+        exceptionFormat = 'full'
     }
 }
