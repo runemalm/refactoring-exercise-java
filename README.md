@@ -16,6 +16,8 @@ Given the existing code base was a refactoring test (and thus not a *real* appli
 ## Description
 This is a candidate test project part of the recruiting process at eTraveli. The task was to fork [the original project](https://github.com/greatersum/refactoring-exercise-java/) and refactor it according to "how I wished the code looked like".
 
+Because there is no actual application, and no business to understand (and model), I have not focused on creating subclasses, interfaces, moving hard-coded data to a database and creating a "repository" class to access it. This would be unfeasible. Instead, I have showcases my skills by explaining this, and also doing some "basic" refactoring that could be made without an actual application, domain model and generally suitable for any code.
+
 What I've focused on is basically:
 
 -  Separate code in functions so that every function has a single responsibility.
@@ -27,6 +29,10 @@ What I've focused on is basically:
 - Add comments to the code, where needed.
 
 Note that normally I model the application by some kind of layered architecture, e.g. the *Hexagonal Architecture* pattern. In this project however, it's not possible due to the lack of domain model and application. Thus, there are anemic domain models (lacking business logic in the classes).
+
+Also, the movies "database" is right now hard-coded into the "Record" domain service. If this were an actual application, I'd move this data to an actual database and create a "movie" repository to access it.
+
+
 
 ## Testing
 
