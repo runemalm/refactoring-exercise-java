@@ -1,4 +1,4 @@
-package com.etraveli.rental;
+package com.etraveli.rental.domain.model.movie;
 
 public class Movie {
     private final String title;
@@ -9,6 +9,8 @@ public class Movie {
         this.title = title;
         this.type = type;
     }
+
+    // Getters & Setters
 
     public String getTitle() {
         return title;

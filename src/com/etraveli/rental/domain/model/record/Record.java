@@ -1,9 +1,14 @@
-package com.etraveli.rental;
+package com.etraveli.rental.domain.model.record;
 
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.etraveli.rental.domain.model.movie.MovieCost;
+
 public class Record {
+    /*
+     * The 'Record' entity.
+     */
     private String customerName;
     private List<MovieCost> movieCosts;
     private BigDecimal total;
@@ -13,9 +18,12 @@ public class Record {
         
     }
 
-    public String createStatement() {
+    public String toStatement() {
         /*
-         * Create a statement suitable to put on the receipt.
+         * Get a statement of movie rentals, 
+         * (suitable to put on a customer receipt).
+         *
+         * Returns: The statement.
          */
         StringBuilder sb = new StringBuilder(
             "Rental Record for " + this.getCustomerName() + "\n"
@@ -36,6 +44,8 @@ public class Record {
 
         return sb.toString();
     }
+
+    // Getters & Setters
 
     public String getCustomerName() {
         return customerName;
