@@ -1,6 +1,9 @@
-package com.etraveli.rental;
+package com.etraveli.rental.domain.model.rental;
 
 public class Rental {
+    /*
+     * The 'Rental' entity.
+     */
     private final String movieId;
     private final int days;
 
@@ -8,6 +11,8 @@ public class Rental {
         this.movieId = movieId;
         this.days = days;
     }
+
+    // Getters & Setters
 
     public String getMovieId() {
         return movieId;

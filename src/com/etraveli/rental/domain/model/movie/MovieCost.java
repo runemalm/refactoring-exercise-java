@@ -1,4 +1,4 @@
-package com.etraveli.rental;
+package com.etraveli.rental.domain.model.movie;
 
 import java.math.BigDecimal;
 
