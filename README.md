@@ -1,38 +1,44 @@
+
 # refactoring-exercise-java
 
-Version: 0.9.0
+Version: 0.9.1
 
 ## Status
-The refactoring is done.
+A basic "low-level" refactoring and a second "high-level" refactoring has been completed.
 
 ## Known Issues
-- No domain model.
-- No application.
+- Fictitious domain model.
+- No actual application.
 - Low unit test coverage.
 - Low end-to-end test coverage.
 
-Given the existing code base was a refactoring test (and thus not a *real* application with worked out domain model and an actual existing application), it was unfeasible to create a better package structure (modeled according to a layered architecture). All classes are thus contained in the base ```com.etraveli.rental``` package.
+Because this is a candidate test, the issues above aren't really issues, but they would be if this would be an actual project at a company.
 
 ## Description
-This is a candidate test project part of the recruiting process at eTraveli. The task was to fork [the original project](https://github.com/greatersum/refactoring-exercise-java/) and refactor it according to "how I wished the code looked like".
+This project is a "refactoring test" part of the recruiting process at eTraveli.
 
-Because there is no actual application, and no business to understand (and model), I have not focused on creating subclasses, interfaces, moving hard-coded data to a database and creating a "repository" class to access it. This would be unfeasible. Instead, I have showcases my skills by explaining this, and also doing some "basic" refactoring that could be made without an actual application, domain model and generally suitable for any code.
+The task is to refactor a code base according to "how I would like to see the code". The code doesn't contain any actual application, just a few classes and a single unit test.
 
-What I've focused on is basically:
+Given it's a fictitious business, the domain model itself is also fictitious. Thus, instead of talking to stakeholders to map out the domain model, I've had to assume this.
 
--  Separate code in functions so that every function has a single responsibility.
-- Refactor the unit test into a classical "xUnit" test by making the xUnit model apparent in the test and also adding a base test class.
-- Break out concepts in code into classes. Also replace hard-coded values with enums.
-- Add files to .gitignore.
-- Create README with focus on describing the status of the project, a description of it and how to build and test the code.
-- Created *develop* and *feature* branch (for this refactoring task) to the single *master* branch of the repository.
-- Add comments to the code, where needed.
+The approach to this task was basically:
 
-Note that normally I model the application by some kind of layered architecture, e.g. the *Hexagonal Architecture* pattern. In this project however, it's not possible due to the lack of domain model and application. Thus, there are anemic domain models (lacking business logic in the classes).
-
-Also, the movies "database" is right now hard-coded into the "Record" domain service. If this were an actual application, I'd move this data to an actual database and create a "movie" repository to access it.
-
-
+1. Analyze the code, figure out entities and how they relate. Also derive use cases (which turned out to be a single one - "create rental record statement").
+2. Do a basic refactoring (according to general coding principles). This involved:
+    - Separating functions that had multiple responsibilities out into new methods with single responsibilities.
+    - Create classes from concepts hidden in the code (like e.g. MovieCost).
+    - Replace hard coded values with enums.
+    - Refactor the unit tests into the battle tested [xUnit](https://en.wikipedia.org/wiki/XUnit) model. This involved creating a base test class and use the Java implementation of xUnit ([JUnit](https://junit.org/junit5/)).
+    - Create a README with a structure allowing for more members to join the team of the code base (this file), and also describe current status and known issues to enable a quick overview of the project.
+    - Add some files to gitignore.
+    - Configure gradle (update gradle.build file), to output differences in failing equality assertions of the tests, and to display text written to standard out to ease debugging.
+    - The project had a single "master" branch, so I prepared the project for multiple developers by porting the branching model to the [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) model. This simply meant creating a "develop" branch and started working on "feature" branches.
+    - Add comments, where needed.
+3. After the basic refactoring, I had something that was easier to work with for "Refactoring number 2". In this refactoring I focused on the code base at a "higher level". I transformed the code base into a layered architecture ([Hexagonal Architecture](https://fideloper.com/hexagonal-architecture)). This involved:
+    - Moving business logic into the entity models. 
+    - Move calculation logic that didn't fit in any entity to a new domain service class (RecordService).
+    - Break out the hard-coded movies database into a MockMovieRepository class.
+    - Refactor the package (and folder) structure to reflect the (now refined) domain model.
 
 ## Testing
 
